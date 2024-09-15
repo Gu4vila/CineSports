@@ -1,20 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-content>
+      <!-- Formulario de inicio de sesión -->
+      <form (ngSubmit)="validateLogin()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input [(ngModel)]="username" name="username" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Edad</ion-label>
+          <ion-input [(ngModel)]="age" name="age" type="number" min="1" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
+      </form>
+
+      <!-- Mensaje de inicio de sesión -->
+      <div *ngIf="loginMessage" class="login-message">
+        {{ loginMessage }}
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

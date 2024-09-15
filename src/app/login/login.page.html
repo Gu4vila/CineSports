@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color ='medium'>
+    <ion-title>Cinesport</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button routerLink="/cartelera">Ir a cartelera</ion-button>
+
+  <ion-list>
+    <ion-item>
+      <ion-title class="ion-text-center">Bienvenido</ion-title>
+    </ion-item>
+    <ion-item lines="none">
+      Usuario: {{username}}
+    </ion-item>
+    <ion-item lines="none">
+      <!-- ion input -->
+      <ion-input label="Nombre" [(ngModel)]="name"> </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input label="Apellido" [(ngModel)]="apellido"> </ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <!-- ionselect para un combobox -->
+      
+    </ion-item>
+    <ion-item lines="none">
+
+      <ion-input label="F. nac" [(ngModel)]="fechaNacimiento"></ion-input> 
+      <!-- ion button para un boton le damos una id para darle un valor especifico -->
+      <ion-button fill="clear" id="btn_calendar">
+        <!-- ion-icon es para darle un diseño al boton tiene muchos diseños que se les puede dar con el name -->
+        <ion-icon name="calendar" ></ion-icon>
+      </ion-button>
+      <!-- ion popover crea la funcionalidad del boton para saltar un popup al precionar -->
+      <ion-popover trigger="btn_calendar" triggerAction="click">
+        <!-- ingresamos el contenido del pupup -->
+        <ng-template>
+          <!-- ion-datetime para mostrar un calendario e indicamos el valor que representa con el ndmodel -->
+          <ion-datetime [(ngModel)]="fechaNacimiento"></ion-datetime>
+        </ng-template>
+      </ion-popover>
+
+    </ion-item>
+    <ion-item lines="none">
+      <ion-button (click)="showAlert()">alertController</ion-button>
+      <ion-button (click)="limpiar()">Limpiar</ion-button>
+      <ion-button id="present-alert">Mostrar</ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Hola"
+          message="hola {{name}} {{apellido}}"
+        ></ion-alert>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer [translucent] = "true">
+  <ion-toolbar>
+    <ion-title>Contactanos en:</ion-title>
+  </ion-toolbar>
+</ion-footer>

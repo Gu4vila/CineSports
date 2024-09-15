@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'cartelera',
+    loadChildren: () => import('./cartelera/cartelera.module').then( m => m.CarteleraPageModule)
+  },
 ];
 
 @NgModule({
